@@ -1,0 +1,316 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/black"
+    android:orientation="vertical"
+    tools:context=".newFeelim">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:orientation="horizontal">
+        // 로고
+
+        <View
+            android:id="@+id/logo"
+            android:layout_width="128dp"
+            android:layout_height="32dp"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="16dp"
+            android:background="#46BC8F" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/newFeelim"
+            android:layout_width="wrap_content"
+            android:layout_height="16dp"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginLeft="16dp"
+            android:gravity="top"
+            android:text="NEW FEEL:IM"
+            android:textColor="#46BC8F"
+            android:textSize="14sp"
+            android:textStyle="normal|bold" />
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1" />
+
+        <TextView
+            android:id="@+id/removeFeelim"
+            android:layout_width="45dp"
+            android:layout_height="14dp"
+            android:layout_marginRight="16dp"
+            android:gravity="right|top"
+            android:text="삭제하기"
+            android:textColor="#46BC8F"
+            android:textSize="12sp" />
+    </LinearLayout>
+
+    // 영화 정보 작성 칸 (제목, 날짜, 장르, 별점, 장소/플랫폼)
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginBottom="12dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/movieTitle"
+            android:layout_width="48dp"
+            android:layout_height="14dp"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:gravity="top"
+            android:text="영화 제목"
+            android:textColor="@color/feelim_02"
+            android:textSize="12sp" />
+
+        <EditText
+            android:id="@+id/edtMovieTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:gravity="top"
+            android:hint="영화 제목을 입력해주세요"
+            android:inputType="text"
+            android:maxLength="28"
+            android:textColor="@color/white"
+            android:textColorHint="@color/white"
+            android:textSize="12sp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/startDate"
+                android:layout_width="wrap_content"
+                android:layout_height="14dp"
+                android:layout_gravity="center"
+                android:layout_marginRight="6dp"
+                android:gravity="center"
+                android:text="시작 날짜"
+                android:textColor="@color/feelim_02"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/edtStartDate"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="left|center_vertical"
+                android:inputType="date"
+                android:text="2022.00.00"
+                android:textColor="@color/white"
+                android:textSize="12sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/finishDate"
+                android:layout_width="wrap_content"
+                android:layout_height="14dp"
+                android:layout_gravity="center|center_horizontal|center_vertical"
+                android:layout_marginRight="6dp"
+                android:gravity="center|center_vertical"
+                android:text="종료 날짜"
+                android:textColor="@color/feelim_02"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/edtFinishDate"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="left|center_vertical"
+                android:inputType="date"
+                android:text="2022.00.00"
+                android:textColor="@color/white"
+                android:textSize="12sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/genre"
+                android:layout_width="wrap_content"
+                android:layout_height="14dp"
+                android:layout_gravity="center"
+                android:layout_marginRight="6dp"
+                android:gravity="center"
+                android:text="장르"
+                android:textColor="@color/feelim_02"
+                android:textSize="12sp" />
+
+
+            <Spinner
+                android:id="@+id/edtGenre"
+                style="@style/Widget.AppCompat.Spinner"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/spinner_bg"
+                android:dropDownWidth="wrap_content"
+                android:popupBackground="@android:color/black"
+                android:popupElevation="3dp"
+                android:stateListAnimator="@drawable/spinner_sla"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:orientation="horizontal">
+
+
+            <TextView
+                android:id="@+id/score"
+                android:layout_width="wrap_content"
+                android:layout_height="14dp"
+                android:layout_marginRight="6dp"
+                android:gravity="top"
+                android:text="별점"
+                android:textColor="@color/feelim_02"
+                android:textSize="12sp" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="center">
+
+                <RatingBar
+                    android:id="@+id/edtScore"
+                    style="@style/Widget.AppCompat.RatingBar.Small"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentTop="true"
+                    android:gravity="top"
+                    android:isIndicator="false"
+
+                    android:numStars="5"
+                    android:rating="3"
+                    android:stepSize="0.5"
+                    android:theme="@style/RatingBar"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/place"
+                android:layout_width="wrap_content"
+                android:layout_height="14dp"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true"
+                android:layout_gravity="center"
+                android:layout_marginRight="6dp"
+                android:gravity="top"
+                android:text="장소/플랫폼"
+                android:textColor="@color/feelim_02"
+                android:textSize="12sp" />
+
+            <Spinner
+                android:id="@+id/edtPlace"
+                style="@style/Widget.AppCompat.Spinner"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/spinner_bg"
+                android:dropDownWidth="wrap_content"
+                android:popupBackground="@android:color/black"
+                android:popupElevation="3dp"
+                android:stateListAnimator="@drawable/spinner_sla"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"></LinearLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom|right"
+
+                android:gravity="bottom"
+                android:text="영화정보 더보기"
+                android:textColor="#46BC8F"
+                android:textSize="9sp" />
+        </LinearLayout>
+    </LinearLayout>
+
+    // 감상평 작성
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginBottom="12dp"
+        android:layout_weight="1">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:orientation="vertical"></LinearLayout>
+    </ScrollView>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <Button
+            android:id="@+id/addFeelim"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:text="저장하기"
+            app:backgroundTint="@color/feelim_01"
+            app:elevation="0dp"
+            app:iconPadding="0dp" />
+    </LinearLayout>
+</LinearLayout>
+
+
+
