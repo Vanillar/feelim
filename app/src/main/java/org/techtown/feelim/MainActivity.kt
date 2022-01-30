@@ -47,9 +47,9 @@ class MainActivity : AppCompatActivity() {
         binding.rvProfile2.adapter=preferAdapter(movielist2)
 
         val movielist3= arrayListOf(
-            preference(R.drawable.carol,"CAROL"), preference(R.drawable.frank,"프랭크"),
-            preference(R.drawable.jaeky,"재키"), preference(R.drawable.loud,"라우더 댄 밤즈"),
-            preference(R.drawable.sprout,"sprout")
+            preference(R.drawable.lalaland,"라라랜드"), preference(R.drawable.love,"내사랑"),
+            preference(R.drawable.miles,"마일스"), preference(R.drawable.moodindigo,"Mood Indigo"),
+            preference(R.drawable.moonlight,"MOONLIGHT")
         )
         binding.rvProfile3.layoutManager=
             LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL,false)
@@ -57,9 +57,9 @@ class MainActivity : AppCompatActivity() {
         binding.rvProfile3.adapter=preferAdapter(movielist3)
 
         val movielist4= arrayListOf(
-            preference(R.drawable.bilie,"빌리엘리어트"), preference(R.drawable.her,"HER"),
-            preference(R.drawable.aria,"아리아"), preference(R.drawable.borntobeblue,"본투비블루"),
-            preference(R.drawable.callmeby,"콜미바이유얼네임")
+            preference(R.drawable.pig,"옥자"), preference(R.drawable.pransisha,"프란시스하"),
+            preference(R.drawable.small,"소공녀"), preference(R.drawable.wendy,"스탠바이,웬디"),
+            preference(R.drawable.yourname,"너의 이름은")
         )
 
         binding.rvProfile4.layoutManager=
