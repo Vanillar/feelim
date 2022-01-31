@@ -1,14 +1,19 @@
 package org.techtown.feelim
 
 import android.app.DatePickerDialog
+import android.content.Context
 import android.content.Intent
 import android.database.Cursor
 import android.database.sqlite.SQLiteDatabase
+import android.database.sqlite.SQLiteOpenHelper
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.*
 import androidx.core.widget.doBeforeTextChanged
+import org.techtown.feelim.DBManager
+import org.techtown.feelim.MainActivity
+import org.techtown.feelim.R
 import java.util.*
 
 class infoFeelim : AppCompatActivity() {
@@ -19,7 +24,9 @@ class infoFeelim : AppCompatActivity() {
     var placeS = 0
 
     lateinit var logo: View
-    lateinit var addFeelim: TextView
+    lateinit var removeFeelim: TextView
+    lateinit var addFeelim: Button
+    lateinit var detail_mv: TextView
 
     lateinit var edtMovieTitle: EditText
     lateinit var edtStartDate: TextView
@@ -46,6 +53,8 @@ class infoFeelim : AppCompatActivity() {
 
         logo = findViewById(R.id.logo)
         addFeelim = findViewById(R.id.addFeelim)
+        removeFeelim = findViewById(R.id.removeFeelim)
+        detail_mv = findViewById(R.id.detail_mv)
 
         edtMovieTitle = findViewById(R.id.edtMovieTitle)
         edtStartDate = findViewById(R.id.edtStartDate)
@@ -171,19 +180,43 @@ class infoFeelim : AppCompatActivity() {
         }
 
 
-        // 정보 DB로 이동
+
+        // 수정 버튼 설정
         addFeelim.setOnClickListener {
             sqlDB = myHelper.writableDatabase
 
+            sqlDB.execSQL("DELETE FROM movieList WHERE mvTitle = '" + FdbMovieTitle + "';")
             sqlDB.execSQL("INSERT INTO movieList VALUES ('" + edtMovieTitle.text.toString() + "','"
                     + edtStartDate.text.toString() + "','"
                     + edtFinishDate.text.toString() + "','"
-                    + edtGenre.toString() + "','"
-                    + edtScore.toString() + "','"
-                    + edtPlace.toString()
+                    + genreS.toInt() + "','"
+                    + starNum.toDouble() + "','"
+                    + placeS.toInt()
                     + "');") // DB에 저장 (제목, 시작날짜, 종료날짜, 장르, 평점, 장소/플랫폼)
             sqlDB.close()
 
+            Toast.makeText(applicationContext,"수정되었습니다.", Toast.LENGTH_SHORT).show()
+        }
+
+        // 삭제 버튼 설정
+        removeFeelim.setOnClickListener {
+            sqlDB = myHelper.writableDatabase
+
+            sqlDB.execSQL("DELETE FROM movieList WHERE mvTitle = '" + FdbMovieTitle + "';")
+
+            sqlDB.close()
+
+            Toast.makeText(applicationContext,"삭제되었습니다.", Toast.LENGTH_SHORT).show()
+
+            val intent = Intent(this, MainActivity::class.java)
+            startActivity(intent)
+        }
+
+        detail_mv.setOnClickListener {
+            val intent = Intent(this, moreInfo::class.java)
+            intent.putExtra("intent_name", edtMovieTitle.text.toString())
+            startActivity(intent)
         }
     }
 }
+

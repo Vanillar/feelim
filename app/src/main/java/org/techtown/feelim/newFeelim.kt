@@ -12,6 +12,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.widget.*
 import androidx.core.view.get
+import org.techtown.feelim.DBManager
+import org.techtown.feelim.MainActivity
+import org.techtown.feelim.R
 //import com.example.guru2022.databinding.ActivityMainBinding
 import java.util.*
 import kotlin.properties.Delegates
@@ -38,6 +41,8 @@ class newFeelim : AppCompatActivity() {
     lateinit var myHelper: DBManager
     lateinit var sqlDB: SQLiteDatabase
 
+    lateinit var movieList: TextView // 임시
+
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -57,6 +62,13 @@ class newFeelim : AppCompatActivity() {
         edtPlace = findViewById(R.id.edtPlace)
 
         addFeelim = findViewById(R.id.addFeelim)
+
+        movieList = findViewById(R.id.movieList) // 임시
+        movieList.setOnClickListener {
+            val intent = Intent(this, myFeelim::class.java)
+            startActivity(intent)
+        }
+
 
         // DB
         myHelper = DBManager(this, "movieList", null, 1)
@@ -171,6 +183,8 @@ class newFeelim : AppCompatActivity() {
                     + placeS.toInt()
                     + "');") // DB에 저장 (제목, 시작날짜, 종료날짜, 장르, 평점, 장소/플랫폼)
             sqlDB.close()
+
+            Toast.makeText(applicationContext,"저장되었습니다.", Toast.LENGTH_SHORT).show()
 
             val intent = Intent(this, infoFeelim::class.java)
             intent.putExtra("intent_name", edtMovieTitle.text.toString())

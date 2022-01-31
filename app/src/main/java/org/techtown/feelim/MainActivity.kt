@@ -21,7 +21,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
         fab_btn=findViewById(R.id.fab_btn)
         fab_btn.setOnClickListener{
-            val intent =Intent(this,newFeelim::class.java)
+            val intent =Intent(this, newFeelim::class.java)
             startActivity(intent)
         }
 
