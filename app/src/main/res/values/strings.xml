@@ -1,3 +1,16 @@
 <resources>
-    <string name="app_name">feelim</string>
+    <string name="app_name">FEEL:IM</string>
+    <string name="reco_feelim">추천 필름</string>
+    <string name="my_feelim">마이 필름</string>
+
+    <string name="mv_prefer">취향에 맞는</string>
+    <string name="mv_open">개봉을 앞둔</string>
+    <string name="mv_popular">요즘 인기 있는</string>
+    <string name="mv_high">평점이 높은</string>
+
+    <string name="mv_title">영화제목</string>
+    <string name="mv_country">나라</string>
+    <string name="mv_time">시간</string>
+    <string name="mv_date">개봉일</string>
+
 </resources>

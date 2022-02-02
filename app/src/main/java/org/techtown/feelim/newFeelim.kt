@@ -9,6 +9,8 @@ import android.database.sqlite.SQLiteOpenHelper
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.LayoutInflater
+import android.view.Menu
+import android.view.MenuItem
 import android.view.View
 import android.widget.*
 import androidx.core.view.get
@@ -192,5 +194,29 @@ class newFeelim : AppCompatActivity() {
         }
 
     }
+    //메뉴 추가
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.menu, menu)
+        return true
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        // Handle presses on the action bar items
+        return when (item.itemId) {
+            R.id.item1 -> {
+                val intent = Intent(this, MainActivity::class.java)
+                startActivity(intent)
+                true
+            }
+            R.id.item2 -> {
+                val intent = Intent(this, myFeelim::class.java)
+                startActivity(intent)
+                true
+            }
+            else ->super.onOptionsItemSelected(item)
+        }
+    }
+
+
 
 }

@@ -1,7 +1,10 @@
 package org.techtown.feelim
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.Menu
+import android.view.MenuItem
 import android.webkit.WebView
 import android.webkit.WebViewClient
 import org.techtown.feelim.R
@@ -30,4 +33,31 @@ class moreInfo : AppCompatActivity() {
             webview.webViewClient = WebViewClient()
         }
     }
+
+    //메뉴 추가
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.menu, menu)
+        return true
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+
+        return when (item.itemId) {
+            R.id.item1 -> {
+                val intent = Intent(this, MainActivity::class.java)
+                startActivity(intent)
+                true
+            }
+            R.id.item2 -> {
+                val intent = Intent(this, myFeelim::class.java)
+                startActivity(intent)
+                true
+            }
+            else ->super.onOptionsItemSelected(item)
+        }
+    }
+
+
+
+
 }
