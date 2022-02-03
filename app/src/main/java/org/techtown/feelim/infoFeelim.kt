@@ -25,7 +25,6 @@ class infoFeelim : AppCompatActivity() {
     var genreS = 0
     var placeS = 0
 
-    lateinit var logo: View
     lateinit var removeFeelim: TextView
     lateinit var addFeelim: Button
     lateinit var detail_mv: TextView
@@ -53,7 +52,7 @@ class infoFeelim : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_info_feelim)
 
-        logo = findViewById(R.id.logo)
+
         addFeelim = findViewById(R.id.addFeelim)
         removeFeelim = findViewById(R.id.removeFeelim)
         detail_mv = findViewById(R.id.detail_mv)
@@ -90,13 +89,6 @@ class infoFeelim : AppCompatActivity() {
         edtStartDate.text = FdbStartDate
         edtFinishDate.text = FdbFinishDate
 
-
-        // 로고 (클릭 시 메인 화면으로 이동)
-        // 위치만 수정 필요 (Home)
-        logo.setOnClickListener {
-            val intent = Intent(this, MainActivity::class.java)
-            startActivity(intent)
-        }
 
         // 시작 날짜
         edtStartDate.setOnClickListener {
